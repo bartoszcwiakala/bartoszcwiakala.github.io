@@ -19,33 +19,33 @@
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="x1" type="number" class="validate" required>
+                        <input onkeypress="handleKeyPress(1)" id="x1" type="number" class="validate" required>
                         <label for="x1">X1:</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="y1" type="number" class="validate" required>
+                        <input id="y1" onkeypress="handleKeyPress(2)" type="number" class="validate" required>
                         <label for="y1">Y1:</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="x2" type="number" class="validate" required>
+                        <input id="x2" onkeypress="handleKeyPress(3)" type="number" class="validate" required>
                         <label for="x2">X2:</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="y2" type="number" class="validate" required>
+                        <input id="y2" onkeypress="handleKeyPress(4)"  type="number" class="validate" required>
                         <label for="y2">Y2:</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="x3" type="number" class="validate" required>
+                        <input id="x3" onkeypress="handleKeyPress(5)" type="number" class="validate" required>
                         <label for="x3">X3:</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="y3" type="number" class="validate" required>
+                        <input id="y3" onkeypress="handleKeyPress(6)" type="number" class="validate" required>
                         <label for="y3">Y3:</label>
                     </div>
                 </div>
@@ -63,6 +63,23 @@
     <!-- Include MaterializeCSS JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+    
+   function handleKeyPress(e) {
+   if (e === 1) {
+    console.log("x1");
+   } else if (e === 2) {
+    console.log("y1");
+   } else if (e === 3) {
+    console.log("x2");
+   } else if (e === 4) {
+    console.log("y2");
+   } else if (e === 5) {
+    console.log("x3");
+   } else if (e === 6) {
+    console.log("y3");
+   }
+  }
+
     function calculateCircleCenter() {
     // Pobierz wartości wejściowe z formularza
     var x1 = parseFloat(document.getElementById('x1').value);
