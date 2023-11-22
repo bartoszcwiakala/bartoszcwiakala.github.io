@@ -16,36 +16,36 @@
     <div class="container">
         <h4 class="center-align">Znajdź środek okręgu</h4>
         <div class="row">
-            <form class="col s12">
+            <form class="col s12" id="circleForm">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input onkeypress="handleKeyPress(1)" id="x1" type="number" class="validate" required>
+                        <input id="x1" type="number" class="validate" required>
                         <label for="x1">X1:</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="y1" onkeypress="handleKeyPress(2)" type="number" class="validate" required>
+                        <input id="y1"  type="number" class="validate" required>
                         <label for="y1">Y1:</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="x2" onkeypress="handleKeyPress(3)" type="number" class="validate" required>
+                        <input id="x2" type="number" class="validate" required>
                         <label for="x2">X2:</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="y2" onkeypress="handleKeyPress(4)"  type="number" class="validate" required>
+                        <input id="y2" type="number" class="validate" required>
                         <label for="y2">Y2:</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="x3" onkeypress="handleKeyPress(5)" type="number" class="validate" required>
+                        <input id="x3" type="number" class="validate" required>
                         <label for="x3">X3:</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="y3" onkeypress="handleKeyPress(6)" type="number" class="validate" required>
+                        <input id="y3" type="number" class="validate" required>
                         <label for="y3">Y3:</label>
                     </div>
                 </div>
@@ -64,21 +64,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
     
-    function handleKeyPress(e) {
-   if (e === 1) {
-    getElementById('y1').focus();
-   } else if (e === 2) {
-    getElementById('x2').focus();
-   } else if (e === 3) {
-    getElementById('y2').focus();
-   } else if (e === 4) {
-    getElementById('x3').focus();
-   } else if (e === 5) {
-    getElementById('y3').focus();
-   } else if (e === 6) {
-    calculateCircleCenter();
-   }};
-  
+    document.getElementById('circleForm').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                var currentInput = document.activeElement;
+                var inputs = Array.prototype.slice.call(this.getElementsByTagName('input'));
+                var currentIndex = inputs.indexOf(currentInput);
+                if (currentIndex < inputs.length - 1) {
+                    inputs[currentIndex + 1].focus();
+                } else {
+                    // If it's the last input field, focus on the button or perform any other action
+                    document.getElementsByName('action')[0].focus();
+                }
+            }
+        });
 
     function calculateCircleCenter() {
     // Pobierz wartości wejściowe z formularza
