@@ -2,33 +2,68 @@
 <html>
 <head>
     <title>Obliczanie środka okręgu</title>
+    <!-- Include MaterializeCSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Znajdź środek okręgu</h2>
-    <form id="circleForm">
-        <label for="x1">X1:</label>
-        <input type="number" id="x1" name="x1" required><br><br>
 
-        <label for="y1">Y1:</label>
-        <input type="number" id="y1" name="y1" required><br><br>
+    <div class="container">
+        <h4 class="center-align">Znajdź środek okręgu</h4>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="x1" type="number" class="validate" required>
+                        <label for="x1">X1:</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="y1" type="number" class="validate" required>
+                        <label for="y1">Y1:</label>
+                    </div>
+                </div>
 
-        <label for="x2">X2:</label>
-        <input type="number" id="x2" name="x2" required><br><br>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="x2" type="number" class="validate" required>
+                        <label for="x2">X2:</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="y2" type="number" class="validate" required>
+                        <label for="y2">Y2:</label>
+                    </div>
+                </div>
 
-        <label for="y2">Y2:</label>
-        <input type="number" id="y2" name="y2" required><br><br>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="x3" type="number" class="validate" required>
+                        <label for="x3">X3:</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="y3" type="number" class="validate" required>
+                        <label for="y3">Y3:</label>
+                    </div>
+                </div>
 
-        <label for="x3">X3:</label>
-        <input type="number" id="x3" name="x3" required><br><br>
+                <div class="center-align">
+                    <button class="btn waves-effect waves-light" type="button" name="action" onclick="calculateCircleCenter()">Oblicz środek okręgu
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="center-align">
+            <p>Środek okręgu: <span id="circleCenter"></span></p>
+        </div>
+    </div>
 
-        <label for="y3">Y3:</label>
-        <input type="number" id="y3" name="y3" required><br><br>
-
-        <input type="button" value="Oblicz środek okręgu" onclick="calculateCircleCenter()">
-    </form>
-
-    <p>Środek okręgu: <span id="circleCenter"></span></p>
-
+    <!-- Include MaterializeCSS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
     function calculateCircleCenter() {
     // Pobierz wartości wejściowe z formularza
