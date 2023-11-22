@@ -64,21 +64,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
     
-   function handleKeyPress(e) {
+    function handleKeyPress(e) {
    if (e === 1) {
-    console.log("x1");
+    getElementById('y1').focus();
    } else if (e === 2) {
-    console.log("y1");
+    getElementById('x2').focus();
    } else if (e === 3) {
-    console.log("x2");
+    getElementById('y2').focus();
    } else if (e === 4) {
-    console.log("y2");
+    getElementById('x3').focus();
    } else if (e === 5) {
-    console.log("x3");
+    getElementById('y3').focus();
    } else if (e === 6) {
-    console.log("y3");
-   }
-  }
+    calculateCircleCenter();
+   }};
+  
 
     function calculateCircleCenter() {
     // Pobierz wartości wejściowe z formularza
